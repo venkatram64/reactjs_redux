@@ -1,0 +1,48 @@
+{
+    "data":{
+        "authors":{
+            "1":{
+                "firstName":"Robert",
+                "lastName":"Martin"
+            },
+            "2":{
+                "firstName":"Peter",
+                "lastName":"Seibel"
+            },
+            "3":{
+                "firstName":"Steve",
+                "lastName":"Krug"
+            },
+            "4":{
+                "firstName":"Angrew",
+                "lastName":"Hunt"
+            }
+        },
+        "books":[
+            {
+                "id":1,
+                "title":"Coders at work",
+                "price":2254,
+                "authorId":1
+            },
+            {
+                "id":2,
+                "title":"The Mythical Man-Month",
+                "price":2434,
+                "authorId":2
+            },
+            {
+                "id":3,
+                "title":"Don't make me think",
+                "price":2764,
+                "authorId":3
+            },
+            {
+                "id":4,
+                "title":"The Progrmatic Programmer",
+                "price":2194,
+                "authorIds":[3,4]
+            }
+        ]
+    }
+}
