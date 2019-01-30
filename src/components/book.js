@@ -21,7 +21,7 @@ const Book = ({book,author, deleteHandler}) =>{
             <div className="title">
                 {book.title}
             </div>
-            {book.authors.map(author => <Author {...author} />)}
+            {book.authors.length?book.authors.map(author => <Author {...author} />) : ""}
             <div className="price">
                 {formatPrice(book.price)}
             </div>

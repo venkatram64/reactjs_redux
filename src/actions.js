@@ -40,6 +40,31 @@ export const addBook = (title, price) => {
          title,
          price
        })
+    }).then(response => {
+      if(response.ok){
+        return response.json();  
+      }else{
+        throw new Error("Something went wrong with fetch...");
+      }
+    }).then(newBook => {
+        return {
+          type: 'ADD_BOOK',
+          newBook
+        };
+      });
+  };
+
+  /*export const addBook = (title, price) => {
+    return fetch("http://localhost:8000/api/books", {
+      method: 'POST',
+       headers: {
+         'Accept': 'application/json',
+         'Content-Type': 'application/json'
+       },
+       body: JSON.stringify({
+         title,
+         price
+       })
     }).then(response => response.json())
       .then(newBook => {
         return {
@@ -47,7 +72,7 @@ export const addBook = (title, price) => {
           newBook
         };
       });
-  };
+  };*/
 
 /*export const fetchBooks = (dispatch) => {
 	fetch("http://localhost:8000/api/books-authors")

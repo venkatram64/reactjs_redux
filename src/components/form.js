@@ -24,7 +24,7 @@ export default class Form extends Component {
 
     handleButtonClick(event){
         event.preventDefault();
-        this.props.addBookAction(this.state.titleValue,this.state.priceValue);
+        this.props.addBookAction(this.state.titleValue,Number(this.state.priceValue));
         this.setState({titleValue:''});
         this.setState({priceValue:''});
     }

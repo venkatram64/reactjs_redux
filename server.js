@@ -1,7 +1,10 @@
 const express = require('express');
 const cors = require('cors');
 const app = express();
+const bodyParser = require('body-parser');
 app.use(cors());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 
 let {data} = require("./data.json");
@@ -19,8 +22,12 @@ app.get("/api/books-authors", (req, res) =>{
 });
 
 const getBookAuthors = (book) =>{
-    const authorIds = book.authorId ? [book.authorId] : book.authorIds;
-    return authorIds.map(authorId => data.authors[authorId]);
+    if(book.authorId !== undefined){
+        const authorIds = book.authorId ? [book.authorId] : book.authorIds;
+        return authorIds.map(authorId => data.authors[authorId]);
+    }else{
+        return {};
+    }
 }
 
 app.delete('/api/books/:bookId', (req, res) =>{
