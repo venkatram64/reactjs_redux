@@ -27,21 +27,14 @@ export default class BookList extends React.Component{
     }
 
     deleteBook(id){
-        /*const currentBooks = this.state.books;
-        const books = currentBooks.filter(book => book.id !== id);
-        this.setState({books:books});*/
+        this.store.dispatch(action.deleteBook(id));
     }
 
     addBook(title, price){
-        /*this.setState({
-            books:this.state.books.concat({
-                id:Date.now(),
-                title,
-                price
-            })
-        })*/
+        debugger;
+        this.store.dispatch(action.addBook(title, price));
     }
-
+    
     render(){
         return (
             <ul className="book-list">

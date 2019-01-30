@@ -6,6 +6,17 @@ const mainReducer = (state = {}, action) => {
             return Object.assign({}, state, {
                 books: action.books
             });
+
+        case 'DELETE_BOOK':
+            return Object.assign({}, state, {
+                books: state.books.filter(book =>
+                    book.id !== action.bookId)
+            });
+
+        case 'ADD_BOOK':
+            return Object.assign({}, state, {
+                books: state.books.concat(action.newBook)
+            });
             
 		default:
 			return state;
